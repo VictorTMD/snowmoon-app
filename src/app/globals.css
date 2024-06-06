@@ -2,17 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --Pompiere: var(--Pompiere);
-}
-.link:hover {
-  color: #893aed;
-  background-color: #341065;
-}
 html {
   box-sizing: border-box;
   margin: 0;
 }
 body {
+  background-image: url('../../public/dddepth-323.jpg');
   overflow-x: hidden;
 }
