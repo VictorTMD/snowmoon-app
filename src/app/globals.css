@@ -5,8 +5,17 @@
 html {
   box-sizing: border-box;
   margin: 0;
+  padding: 0;
 }
 body {
-  background-image: url('../../public/dddepth-323.jpg');
+  height: 100%;
+  width: 100%;
+}
+.hero-image {
+  background-color: aliceblue;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url('../../public/heroimage.jpg');
   overflow-x: hidden;
 }
