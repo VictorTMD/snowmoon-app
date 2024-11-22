@@ -14,7 +14,6 @@ module.exports = {
         'color-head': '#e0d6fecc',
         'color-sections': '#e0d6fe40',
         'color-cards': '#e0d6fe',
-        'color-red': '#0000',
       },
       screens: {
         '850px': '850px',

@@ -11,7 +11,7 @@ export const velas = [
     title: 'Vela floral premium',
     description:
       'It has roots in classical Latin literature from 45 BC kdfd ppdeoo.',
-    image: '/vela aromatizada.webp',
+    image: '/vela.webp',
   },
 ];
 
@@ -39,5 +39,36 @@ export const resina = [
     description:
       'Hampden-Sydney College in VirginiaC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College',
     image: '/marcapagina.jpg',
+  },
+];
+
+export const ProductsCare = [
+  {
+    id: 1,
+    title: 'VELAS',
+    description:
+      'Hampden-Sydney College in VirginiaC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College',
+    image: '/vela.webp',
+  },
+  {
+    id: 2,
+    title: 'RESINA',
+    description:
+      'Hampden-Sydney College in VirginiaC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College',
+    image: '/marcapagina.jpg',
+  },
+  {
+    id: 3,
+    title: 'WAX MELTS',
+    description:
+      'Hampden-Sydney College in VirginiaC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College',
+    image: '/waxmelts.jpg',
+  },
+  {
+    id: 4,
+    title: 'SNAPBARS',
+    description:
+      'Hampden-Sydney College in VirginiaC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College',
+    image: '/snapbars.webp',
   },
 ];

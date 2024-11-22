@@ -33,7 +33,7 @@ export default function Acerca() {
       ref={sectionRef}
       className='w-full h-full text-center text-5xl my-8 gradiant  '
     >
-      <div className='flex justify-center items-center gap-2'>
+      <div className='flex justify-center items-center gap-2 mt-19 '>
         <RiCandleLine className='text-2xl text-second-color ' />
         <p
           className={`${pompiere.className} text-center md:text-6xl text-5xl `}
@@ -42,7 +42,7 @@ export default function Acerca() {
         </p>
         <RiCandleLine className='text-2xl text-second-color ' />
       </div>
-      <div className='grid gap-8 justify-items-center     md:grid-cols-3  h-full my-24 py-8  '>
+      <div className='grid gap-8 justify-items-center     md:grid-cols-3  h-full  py-20  '>
         <div
           className={`h-96 w-64 bg-color-cards shadow-sm  shadow-slate-600   rounded-t-xl relative  ${
             isVisible ? 'wobble-hor-bottom ' : ''
