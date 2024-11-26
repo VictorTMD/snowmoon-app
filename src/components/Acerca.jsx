@@ -3,17 +3,25 @@ import { RiCandleLine } from 'react-icons/ri';
 import { pompiere } from '@/libs/font';
 import Image from 'next/image';
 import { useState, useEffect, useRef } from 'react';
+
 export default function Acerca() {
   const [isVisible, setIsVisible] = useState(false); // Controla si la sección está visible
+  const [typedText, setTypedText] = useState(''); // Controla el texto que se escribe progresivamente
+  const [isTypingDone, setIsTypingDone] = useState(false); // Evita que se reinicie el efecto
   const sectionRef = useRef(null); // Referencia a la sección
+
+  const fullText =
+    ' "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime, amet? Neque rem nesciunt fuga eos libero, architecto esse minima hic reprehenderit facilis illum maxime. Qui nostrum sit iusto magni illo." ';
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        setIsVisible(entry.isIntersecting); // Cambia el estado si la sección entra en pantalla
+        if (entry.isIntersecting && !isTypingDone) {
+          setIsVisible(true);
+        }
       },
       {
-        threshold: 0.2, // Se activa cuando el 50% de la sección es visible
+        threshold: 0.2, // Se activa cuando el 20% de la sección es visible
       }
     );
 
@@ -26,12 +34,31 @@ export default function Acerca() {
         observer.unobserve(sectionRef.current); // Limpia el observador
       }
     };
-  }, []);
+  }, [isTypingDone]);
+
+  useEffect(() => {
+    if (isVisible && !isTypingDone) {
+      let index = 0;
+
+      const interval = setInterval(() => {
+        setTypedText((prev) => prev + fullText.charAt(index));
+        index++;
+
+        if (index >= fullText.length) {
+          clearInterval(interval); // Detener cuando el texto completo esté escrito
+          setIsTypingDone(true); // Marcar como completado
+        }
+      }, 100); // Ajusta la velocidad de escritura (en milisegundos)
+
+      return () => clearInterval(interval); // Limpia el intervalo al desmontar
+    }
+  }, [isVisible, isTypingDone]);
+
   return (
     <section
       id='acerca'
       ref={sectionRef}
-      className='w-full h-full text-center text-5xl my-8 gradiant  '
+      className='w-full h-full text-center text-5xl my-8 gradiant'
     >
       <div className='flex justify-center items-center gap-2 mt-19 '>
         <RiCandleLine className='text-2xl text-second-color ' />
@@ -42,62 +69,32 @@ export default function Acerca() {
         </p>
         <RiCandleLine className='text-2xl text-second-color ' />
       </div>
-      <div className='grid gap-8 justify-items-center     md:grid-cols-3  h-full  py-20  '>
-        <div
-          className={`h-96 w-64 bg-color-cards shadow-sm  shadow-slate-600   rounded-t-xl relative  ${
-            isVisible ? 'wobble-hor-bottom ' : ''
-          }`}
-        >
+      <div className='flex flex-wrap justify-around items-center  gap-2 w-fulll h-full py-20'>
+        <div className='relative w-72 h-72 md:w-96 md:h-96 rounded-e-3xl overflow-hidden'>
           <Image
-            src={'/avatarcard.jpg'}
-            width={800}
-            height={800}
-            alt='lorena'
-            className='md:h-36 md:w-36 w-32 h-32  absolute -top-14 md:right-14 sm:right-16 right-16  rounded-full bg-contain bg-center bg-no-repeat'
-          ></Image>
-          <p
-            className={`${pompiere.className} text-center text-4xl md:text-5xl  pt-24 sm:text-5xl `}
-          >
-            Lorena
-          </p>
-          <p className='text-sm p-4 px-8 text-left'>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rerum,
-            aliquam expedita harum, blanditiis laboriosam sapiente totam
-            consectetur officiis minima similique eum magnam ipsa officia
-            repellat voluptate maxime numquam animi! Libero?
-          </p>
+            src={'/amigas.jpg'}
+            alt='amigas'
+            layout='fill'
+            objectFit='cover'
+            className='absolute inset-0'
+          />
+          {/* Degradado encima de la imagen */}
+          <div
+            className='absolute inset-0'
+            style={{
+              background: `linear-gradient(
+        0deg,
+        rgba(55, 8, 118, 0.5) 30%,
+        rgba(255, 255, 255, 0.5) 100%
+      )`,
+              mixBlendMode: 'multiply', // Ajusta cómo el degradado interactúa con la imagen
+            }}
+          ></div>
         </div>
-        <div className='h-[500px] w-72 '>
-          <p className='text-lg px-8 pt-4'>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-            Perferendis corporis voluptas vero! Deserunt distinctio, id nihil
-            dolore numquam excepturi quia minus qui omnis quae, nam voluptas
-            impedit! Explicabo, vero excepturi? eserunt distinctio, id nihil
-            dolore numquam excepturi quia minus qui omnis quae, nam
-          </p>
-        </div>
-        <div
-          className={`h-96 w-64 bg-color-cards shadow-sm  shadow-slate-600   rounded-t-xl relative ${
-            isVisible ? 'wobble-hor-bottom ' : ''
-          }`}
-        >
-          <Image
-            src={'/avatarcard.jpg'}
-            width={800}
-            height={800}
-            alt='lorena'
-            className='md:h-36 md:w-36 w-32 h-32  absolute -top-14 md:right-14 sm:right-16 right-16  rounded-full bg-contain bg-center bg-no-repeat'
-          ></Image>
-          <p
-            className={`${pompiere.className} text-center text-4xl md:text-5xl  pt-24 sm:text-5xl `}
-          >
-            Mada
-          </p>
-          <p className='text-sm p-4 px-8 text-left'>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rerum,
-            aliquam expedita harum, blanditiis laboriosam sapiente totam
-            consectetur officiis minima similique eum magnam ipsa officia
-            repellat voluptate maxime numquam animi! Libero?
+
+        <div className='w-96 my-8 mx-4 py-8'>
+          <p className='text-xl md:text-3xl sm:text-2xl text-left '>
+            {typedText}
           </p>
         </div>
       </div>

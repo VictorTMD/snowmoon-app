@@ -30,7 +30,7 @@ export default function ProductCarousel({ products }) {
             width={400}
             height={200}
             alt={product.title}
-            className='w-full h-60 rounded-t-md bg-cover bg-no-repeat bg-center'
+            className='w-full h-60 rounded-t-md bg-cover bg-no-repeat object-cover bg-center'
           />
           <div className='h-48'>
             <h1
