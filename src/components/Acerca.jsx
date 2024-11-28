@@ -1,5 +1,6 @@
 'use client';
 import { RiCandleLine } from 'react-icons/ri';
+import { FiGift } from 'react-icons/fi';
 import { pompiere } from '@/libs/font';
 import Image from 'next/image';
 import { useState, useEffect, useRef } from 'react';
@@ -58,18 +59,18 @@ export default function Acerca() {
     <section
       id='acerca'
       ref={sectionRef}
-      className='w-full h-full text-center text-5xl my-8 gradiant'
+      className='w-full min-h-screen pt-20 h-full text-center  text-5xl  gradiant'
     >
-      <div className='flex justify-center items-center gap-2 mt-19 '>
+      <div className='flex justify-center items-center gap-2 mt-8 '>
         <RiCandleLine className='text-2xl text-second-color ' />
         <p
           className={`${pompiere.className} text-center md:text-6xl text-5xl `}
         >
           ACERCA
         </p>
-        <RiCandleLine className='text-2xl text-second-color ' />
+        <FiGift className='text-2xl text-second-color ' />
       </div>
-      <div className='flex flex-wrap justify-around items-center  gap-2 w-fulll h-full py-20'>
+      <div className='flex flex-wrap justify-around items-center  gap-2 w-fulll h-full py-14'>
         <div className='relative w-72 h-72 md:w-96 md:h-96 rounded-e-3xl overflow-hidden'>
           <Image
             src={'/amigas.jpg'}
@@ -92,8 +93,8 @@ export default function Acerca() {
           ></div>
         </div>
 
-        <div className='w-96 my-8 mx-4 py-8'>
-          <p className='text-xl md:text-3xl sm:text-2xl text-left '>
+        <div className='  w-72 h-72 md:w-96 md:h-96 my-8 s mx-4 p-1 '>
+          <p className='text-xl md:text-3xl sm:text-1xl text-left '>
             {typedText}
           </p>
         </div>

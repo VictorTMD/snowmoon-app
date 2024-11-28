@@ -1,6 +1,6 @@
 export default function ProductsCuidado({ products }) {
   return (
-    <div className='flex flex-wrap gap-8 justify-center  h-full'>
+    <div className='flex flex-wrap gap-8 justify-center py-28 h-full'>
       {products.map((product) => (
         <div className='book bg-color-cards' key={product.id}>
           <div
@@ -8,7 +8,7 @@ export default function ProductsCuidado({ products }) {
             style={{
               backgroundImage: `linear-gradient(
                   0deg,
-                  rgba(55, 8, 118, 0.304) 0%,
+                  rgba(55, 8, 118, 0.304) 30%,
                   rgba(255, 255, 255, 0.323) 100%
                 ),
                 url(${product.image})`,

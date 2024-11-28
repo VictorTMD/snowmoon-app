@@ -1,5 +1,6 @@
 'use client';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { GrCart } from 'react-icons/gr';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules'; // Cambiado aquí
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -21,17 +22,20 @@ export default function ProductCarousel({ products }) {
       pagination={{
         clickable: true,
       }}
-      className='max-w-xl w-full flex  items-center bg-color-cards rounded-md  h-3/5 mb-4 -z-50 cursor-grab '
+      className='max-w-xl w-full flex  items-center bg-color-cards rounded-md  h-3/5  -z-50  '
     >
       {products.map((product) => (
         <SwiperSlide key={product.id}>
-          <Image
-            src={product.image}
-            width={400}
-            height={200}
-            alt={product.title}
-            className='w-full h-60 rounded-t-md bg-cover bg-no-repeat object-cover bg-center'
-          />
+          <div className='w-full'>
+            <Image
+              src={product.image}
+              width={400}
+              height={200}
+              alt={product.title}
+              className='w-full h-60 rounded-t-md bg-cover bg-no-repeat object-cover bg-center cursor-grab'
+            />
+          </div>
+
           <div className='h-48'>
             <h1
               className={`${pompiere.className} text-3xl md:text-4xl text-text-color m-2 font-bold`}
@@ -41,6 +45,17 @@ export default function ProductCarousel({ products }) {
             <p className='m-2 md:text-base sm:text-base text-xs'>
               {product.description}
             </p>
+          </div>
+          <div className='w-full flex justify-end'>
+            <a
+              href={product.url}
+              target='_blank'
+              rel='noopener noreferrer'
+              className='relative cursor-pointer rounded-s-2xl flex items-center justify-center w-20 my-4 h-9 overflow-hidden bg-color-butoon border-t-2 border-b-2 border-l-2 border-second-color hover:bg-second-color  hover:border-text-color'
+            >
+              {/* Ícono sin blur */}
+              <GrCart className='text-3xl   ' />
+            </a>
           </div>
         </SwiperSlide>
       ))}

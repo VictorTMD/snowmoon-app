@@ -8,6 +8,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        'color-butoon': '#883aed5b',
         'text-color': '#341065',
         'color-white': '#ffff',
         'second-color': '#893AED',
