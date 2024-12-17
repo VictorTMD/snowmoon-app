@@ -1,6 +1,6 @@
 export default function ProductsCuidado({ products }) {
   return (
-    <div className='flex flex-wrap gap-8 justify-center py-28 h-full'>
+    <div className='flex flex-wrap gap-14 md:gap-32 md:mx-14  justify-center py-8 md:py-14 h-full '>
       {products.map((product) => (
         <div className='book bg-color-cards' key={product.id}>
           <div

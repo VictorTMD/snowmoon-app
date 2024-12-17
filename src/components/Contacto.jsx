@@ -3,6 +3,11 @@ import React, { useState } from 'react';
 import { FiGift } from 'react-icons/fi';
 import { RiCandleLine } from 'react-icons/ri';
 import { pompiere } from '@/libs/font';
+import { GrInstagram } from 'react-icons/gr';
+import { FaTiktok } from 'react-icons/fa6';
+import { FaAmazon } from 'react-icons/fa';
+import { BsWhatsapp } from 'react-icons/bs';
+import Link from 'next/link';
 
 export default function Contacto() {
   const [formData, setFormData] = useState({
@@ -44,7 +49,11 @@ export default function Contacto() {
   };
 
   return (
-    <section id='contacto' className='h-screen min-h-screen w-full px-4 pt-20'>
+    <section
+      id='contacto'
+      className='h-full min-h-screen w-full px-4 pt-20 my-4
+      '
+    >
       <div className='flex justify-center items-center gap-2 mt-8'>
         <RiCandleLine className='text-2xl text-second-color ' />
         <p
@@ -55,6 +64,30 @@ export default function Contacto() {
         <FiGift className='text-2xl text-second-color ' />
       </div>
       <div className='w-full h-full rounded-md bg-color-sections mt-5'>
+        <div className='bg-white w-full h-24 flex justify-around text-2xl items-center'>
+          <Link href={'https://github.com/'}>
+            <div className='hover:bg-pink-600   p-4 rounded-bl-xl '>
+              <GrInstagram className='animate-bounce  motion-reduce:animate-bounce hover:animate-none' />
+            </div>
+          </Link>
+
+          <Link href={'https://github.com/'}>
+            <div className='hover:bg-teal-300 p-4 rounded-bl-xl '>
+              <FaTiktok className='animate-bounce  motion-reduce:animate-bounce hover:animate-none' />
+            </div>
+          </Link>
+
+          <Link href={'https://github.com/'}>
+            <div className='hover:bg-orange-400 p-4 rounded-bl-xl '>
+              <FaAmazon className='animate-bounce  motion-reduce:animate-bounce hover:animate-none text-3xl' />
+            </div>
+          </Link>
+          <Link href={'https://github.com/'}>
+            <div className='hover:bg-green-500 p-4 rounded-bl-xl '>
+              <BsWhatsapp className='animate-bounce  motion-reduce:animate-bounce hover:animate-none' />
+            </div>
+          </Link>
+        </div>
         <form onSubmit={handleSubmit} className='p-4 space-y-4'>
           <div>
             <label htmlFor='name' className='block text-lg'>
@@ -73,12 +106,13 @@ export default function Contacto() {
           </div>
           <div>
             <label htmlFor='email' className='block text-lg'>
-              Correo Electrónico
+              Correo Electrónico:
             </label>
             <input
               type='email'
               id='email'
               name='email'
+              placeholder='Ingresa tu correo*'
               className='w-full p-2 border'
               value={formData.email}
               onChange={handleChangue}
@@ -87,13 +121,14 @@ export default function Contacto() {
           </div>
           <div>
             <label htmlFor='message' className='block text-lg'>
-              Mensaje
+              Mensaje:
             </label>
             <textarea
               id='message'
               name='message'
               className='w-full p-2 border'
               rows='4'
+              placeholder='Ingresa tu mensaje*'
               value={formData.message}
               onChange={handleChangue}
               required
