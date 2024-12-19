@@ -8,6 +8,7 @@ import { FaTiktok } from 'react-icons/fa6';
 import { FaAmazon } from 'react-icons/fa';
 import { BsWhatsapp } from 'react-icons/bs';
 import Link from 'next/link';
+import { SnackbarProvider, enqueueSnackbar } from 'notistack';
 
 export default function Contacto() {
   const [formData, setFormData] = useState({
@@ -15,7 +16,6 @@ export default function Contacto() {
     email: '',
     message: '',
   });
-  const [status, setStatus] = useState('');
 
   const handleChangue = (e) => {
     setFormData({
@@ -26,7 +26,6 @@ export default function Contacto() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setStatus('Enviando...');
 
     const response = await fetch('/api/emails', {
       method: 'POST',
@@ -37,14 +36,17 @@ export default function Contacto() {
     });
 
     const data = await response.json();
-
+    const messageOk = 'Mensaje enviado con exito';
+    const messageErr = 'Hubo un error en el envio';
     if (data.success) {
-      setTimeout(() => {
-        setStatus('Mensaje enviado con éxito');
-      }, 5000);
-      setFormData('');
+      enqueueSnackbar(messageOk, { variant: 'success' });
+      setFormData({
+        name: '',
+        email: '',
+        message: '',
+      });
     } else {
-      setStatus('Hubo un error al enviar el mensaje');
+      enqueueSnackbar(messageErr, { variant: 'error' });
     }
   };
 
@@ -54,6 +56,7 @@ export default function Contacto() {
       className='h-full min-h-screen w-full px-4 pt-20 my-4
       '
     >
+      <SnackbarProvider />
       <div className='flex justify-center items-center gap-2 mt-8'>
         <RiCandleLine className='text-2xl text-second-color ' />
         <p
@@ -97,11 +100,11 @@ export default function Contacto() {
               type='text'
               id='name'
               name='name'
-              className='w-full p-2 border'
+              className='w-full p-2 border border-color-butoon focus:outline-none  focus:border-text-color rounded-sm'
               value={formData.name}
               onChange={handleChangue}
               required
-              placeholder='Ingresa tu nombre *'
+              placeholder='Ingresa tu nombre*'
             />
           </div>
           <div>
@@ -113,7 +116,7 @@ export default function Contacto() {
               id='email'
               name='email'
               placeholder='Ingresa tu correo*'
-              className='w-full p-2 border'
+              className='w-full p-2 border border-color-butoon focus:outline-none  focus:border-text-color rounded-sm'
               value={formData.email}
               onChange={handleChangue}
               required
@@ -126,7 +129,8 @@ export default function Contacto() {
             <textarea
               id='message'
               name='message'
-              className='w-full p-2 border'
+              maxLength={400}
+              className='w-full p-2 border border-color-butoon focus:outline-none  focus:border-text-color rounded-sm'
               rows='4'
               placeholder='Ingresa tu mensaje*'
               value={formData.message}
@@ -143,9 +147,6 @@ export default function Contacto() {
             </button>
           </div>
         </form>
-        {status && (
-          <p className='mt-4 w-24 text-center bg-color-butoon'>{status}</p>
-        )}
       </div>
     </section>
   );

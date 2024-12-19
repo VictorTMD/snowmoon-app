@@ -11,8 +11,8 @@ export async function POST(req) {
       port: 587, // Usualmente es 587 para conexiones seguras o 465 si usas SSL
       // secure: true, // Cambia a 'true' si usas SSL
       auth: {
-        user: 'info@snowmoonartesania.com', // Tu correo de Hostalia
-        pass: 'CopitoLunita24@', // La contraseña de tu correo
+        user: process.env.NEXT_USER, // Tu correo de Hostalia
+        pass: process.env.NEXT_PASS, // La contraseña de tu correo
       },
     });
 

@@ -17,12 +17,12 @@ export default function ProductCarousel({ products }) {
       speed={2000} // Duración de la transición (1 segundo)
       autoplay={{
         delay: 4000, // Tiempo en milisegundos (3 segundos)
-        disableOnInteraction: false, // Mantener autoplay aunque el usuario interactúe
+        disableOnInteraction: true, // Mantener autoplay aunque el usuario interactúe
       }}
       pagination={{
         clickable: true,
       }}
-      className='max-w-xl w-full flex  items-center bg-color-cards rounded-md  h-3/5  -z-50  '
+      className='max-w-xl w-full flex  items-center bg-color-cards rounded-md  h-3/5  -z-50 cursor-grab '
     >
       {products.map((product) => (
         <SwiperSlide key={product.id}>
@@ -32,7 +32,7 @@ export default function ProductCarousel({ products }) {
               width={400}
               height={200}
               alt={product.title}
-              className='w-full h-60 rounded-t-md bg-cover bg-no-repeat object-cover bg-center cursor-grab'
+              className='w-full h-60 rounded-t-md bg-cover bg-no-repeat object-cover bg-center '
             />
           </div>
 
