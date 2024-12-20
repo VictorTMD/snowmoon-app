@@ -18,7 +18,7 @@ export default function Header() {
       <nav
         className={`text-text-color fixed  top-0  left-0 w-full  h-64 flex flex-col justify-center items-center gap-4 text-xl font-medium 850px:static 850px:flex-row 850px:justify-end   850px:h-auto  ${
           isOpen ? 'flex' : 'hidden'
-        } 850px:flex 850pxutil:mt-24 rounded-b-lg 850pxutil:bg-color-head  `}
+        } 850px:flex 850pxutil:mt-24 rounded-b-lg 850pxutil:bg-color-cards  `}
       >
         <Link
           className='hover:text-second-color 850pxutil:hover:text-color-white link 850pxutil:w-full 850pxutil:hover:bg-text-color  850pxutil:h-11 text-center pt-1.5 transition duration-1000 ease-out'
