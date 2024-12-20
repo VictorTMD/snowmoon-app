@@ -51,14 +51,14 @@ export default function ProductCarousel({ products }) {
           </div>
 
           {/* Botón de agregar al carrito */}
-          <div className='w-full flex justify-end'>
+          {/* <div className='w-full flex justify-end'>
             <Link
               href={product.url}
               className='relative z-10 cursor-pointer rounded-s-2xl flex items-center justify-center w-20 my-4 h-9  bg-color-butoon border-t-2 border-b-2 border-l-2 border-second-color hover:bg-second-color hover:border-text-color '
             >
               <GrCart className='text-3xl' />
             </Link>
-          </div>
+          </div> */}
         </SwiperSlide>
       ))}
     </Swiper>

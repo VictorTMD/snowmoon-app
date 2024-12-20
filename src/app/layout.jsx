@@ -12,8 +12,8 @@ const poppins = Poppins({
 });
 
 export const metadata = {
-  title: 'Snowmoon Artesanias',
-  description: 'Esta es la app oficial de Snowmoon artesanias',
+  title: 'Snowmoon Artesania',
+  description: 'Esta es la app oficial de Snowmoon artesania',
 };
 
 export default function RootLayout({ children }) {
