@@ -15,11 +15,13 @@ export default function ProductCarousel({ products }) {
       modules={[Navigation, Pagination, Autoplay]} // Registra los módulos aquí
       spaceBetween={20} // Espacio entre slides
       slidesPerView={1} // Cuántos slides se muestran a la vez
-      autoplay={{ delay: 3000, disableOnInteraction: false }} // Configuración de autoplay
-      speed={2000} // Duración de la transición entre slides
+      autoplay={{ delay: 5000, disableOnInteraction: false }} // Configuración de autoplay
+      speed={3000} // Duración de la transición entre slides
       pagination={{
         clickable: true, // Permitir clics en la paginación
       }}
+      preventClicksPropagation={false} // Permite que los clics internos no se bloqueen
+      allowTouchMove={true} // Asegura que el deslizamiento con el dedo funcione
       className='max-w-xl w-full flex items-center bg-color-cards rounded-md h-3/5 -z-50'
     >
       {products.map((product) => (
@@ -53,7 +55,7 @@ export default function ProductCarousel({ products }) {
               href={product.url}
               target='_blank'
               rel='noopener noreferrer'
-              className='relative cursor-pointer rounded-s-2xl flex items-center justify-center w-20 my-4 h-9 overflow-hidden bg-color-butoon border-t-2 border-b-2 border-l-2 border-second-color hover:bg-second-color hover:border-text-color'
+              className='relative z-10 cursor-pointer rounded-s-2xl flex items-center justify-center w-20 my-4 h-9  bg-color-butoon border-t-2 border-b-2 border-l-2 border-second-color hover:bg-second-color hover:border-text-color '
             >
               <GrCart className='text-3xl' />
             </a>
