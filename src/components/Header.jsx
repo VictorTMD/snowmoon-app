@@ -8,7 +8,7 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className='w-11/12  pr-5  fixed rounded-ee-3xl h-24 z-10  bg-color-head  flex items-center justify-between 850pxutil:w-screen 850pxutil:m-0 850pxutil:rounded-none'>
+    <header className='w-11/12  pr-5  fixed rounded-ee-3xl h-24 z-10  bg-color-cards  flex items-center justify-between 850pxutil:w-screen 850pxutil:m-0 850pxutil:rounded-none'>
       <Image
         className='h-25 w-48 ml-2'
         src={snoWMoon}

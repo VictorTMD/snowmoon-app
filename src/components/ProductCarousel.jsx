@@ -11,6 +11,7 @@ import { pompiere } from '@/libs/font';
 export default function ProductCarousel({ products }) {
   return (
     <Swiper
+      touchEventsTarget='container'
       modules={[Navigation, Pagination, Autoplay]}
       spaceBetween={20}
       slidesPerView={1}
@@ -22,7 +23,7 @@ export default function ProductCarousel({ products }) {
       pagination={{
         clickable: true,
       }}
-      className='max-w-xl w-full flex  items-center bg-color-cards rounded-md  h-3/5  -z-50 cursor-grab '
+      className='max-w-xl w-full flex  items-center bg-color-cards rounded-md  h-3/5  -z-50  '
     >
       {products.map((product) => (
         <SwiperSlide key={product.id}>
@@ -32,7 +33,7 @@ export default function ProductCarousel({ products }) {
               width={400}
               height={200}
               alt={product.title}
-              className='w-full h-60 rounded-t-md bg-cover bg-no-repeat object-cover bg-center '
+              className='w-full h-60 rounded-t-md bg-cover bg-no-repeat object-cover bg-center cursor-grab '
             />
           </div>
 

@@ -110,6 +110,10 @@ html {
 }
 
 /* !Animacion para el texto de entrada */
+
+.stroke {
+  text-shadow: 1px 1px 1px #e0d6fe; /* Sombras negras en varias direcciones */
+}
 .text-focus-in {
   -webkit-animation: text-focus-in 2s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
   animation: text-focus-in 2s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
