@@ -11,15 +11,10 @@ import { pompiere } from '@/libs/font';
 export default function ProductCarousel({ products }) {
   return (
     <Swiper
-      touchEventsTarget='container'
       modules={[Navigation, Pagination, Autoplay]}
       spaceBetween={20}
       slidesPerView={1}
       speed={2000} // Duración de la transición (1 segundo)
-      autoplay={{
-        delay: 4000, // Tiempo en milisegundos (3 segundos)
-        disableOnInteraction: true, // Mantener autoplay aunque el usuario interactúe
-      }}
       pagination={{
         clickable: true,
       }}
